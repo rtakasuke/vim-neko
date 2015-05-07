@@ -19,7 +19,7 @@ set cpo&vim
 
 
 function! Neko()
-    let l:filesStr   = globpath(&runtimepath, "import/*.neko")
+    let l:filesStr   = globpath(&runtimepath, "vim-neko/import/*.neko")
     let l:fileList   = split(filesStr, "\n")
     let l:fileLen    = len(fileList)
     let l:randNum    = call('GetRandomNumber', [fileLen])
