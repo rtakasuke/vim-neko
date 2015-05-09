@@ -4,11 +4,7 @@
 "
 " DESCRIPTION:
 "  This plugin display cute cats.
-"  If :call Neko(), display a cute animals ASCII Art.
-"
-" ==================== file neko.vimrc ====================
-" map <silent> neko :call Neko()<CR>
-" ==================== end: neko.vimrc ====================
+"  If :Neko, display a cute animals ASCII Art.
 
 if v:version < 700 || (exists('g:loaded_neko') && g:loaded_neko)
   finish
@@ -18,22 +14,7 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 
-function! Neko()
-    let l:filesStr   = globpath(&runtimepath, "import/*.neko")
-    let l:fileList   = split(filesStr, "\n")
-    let l:fileLen    = len(fileList)
-    let l:randNum    = call('GetRandomNumber', [fileLen])
-    let l:targetFile = fileList[randNum]
-    for line in readfile(targetFile)
-        echo line
-    endfor
-endfunction
-
-function! GetRandomNumber(fileNum)
-    let l:matchEnd = matchend(reltimestr(reltime()), '\d\+\.') + 1
-    let l:rand     = reltimestr(reltime())[l:matchEnd : ] % (a:fileNum)
-    return rand
-endfunction
+command! -nargs=0 Neko call neko#Neko()
 
 
 let &cpo = s:save_cpo
