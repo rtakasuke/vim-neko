@@ -3,7 +3,7 @@
  Neko means the cat in Japanese.
  If :Neko, you see a cute neko.
 
-==================== file neko.vimrc ====================
+==================== file .vimrc ====================
 NeoBundle 'rtakasuke/vim-neko'
 map <silent> neko :Neko<CR>
-==================== end: neko.vimrc ====================
+==================== end: .vimrc ====================
